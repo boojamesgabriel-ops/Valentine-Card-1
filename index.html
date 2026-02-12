@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentines</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="firstPage">
+        <button id="button" aria-label="Open Envelope"> 
+            <p id="to"> To my Pretty Baby </p>
+        </button>
+    </div>
+
+    <div id="envelope">
+        <p id="p1">Will you be my Valentine?</p>
+        <p id="p2"></p>
+
+        <button id="yes" aria-label="yes please!">
+            YES
+        </button>
+
+        <button id="no" aria-label="Pick the other one">
+            NO
+        </button>
+
+        <button id="details" aria-label="See details"> 
+            See Details 
+        </button>
+
+        <div id="detailsBox">
+        <p id="p4">Date: <br> February 14</p>
+        <p id="p5">Time: <br> 5:00 PM</p>
+        <p id="p6">Place: <br> SM Masinag😌</p>
+        <p id="p7">Attire:<br> Something Red🌹</p>
+        <p>Things to Bring: <br> Your Pretty self😉 </p>
+</div>
+    </div>
+
+    <script>
+    const openBtn = document.getElementById("button");
+    const firstPage = document.getElementById("firstPage");
+    const envelope = document.getElementById("envelope");
+
+    openBtn.addEventListener("click", () => {
+        firstPage.style.display = "none";
+        envelope.classList.add("open");
+    });
+
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const text = document.getElementById("p1");
+    const gif = document.getElementById("p2");
+    const detailsBtn = document.getElementById("details");
+    const detailsBox = document.getElementById("detailsBox");
+
+    const messages = [
+        "Pretty please 🥺",
+        "Come on… just say yes 💔",
+        "I’ll be very sad 😭",
+        "Last chance 😳"
+    ];
+
+    const gifs = [
+        'url("images/cry1.gif")',
+        'url("images/cry2V2.gif")',
+        'url("images/cry3V3.gif")',
+        'url("images/cry4.gif")'
+    ];
+
+    let scale = 1;
+    let noClicks = 0;
+
+    noBtn.addEventListener("click", () => {
+        text.textContent = messages[noClicks];
+        gif.style.backgroundImage = gifs[noClicks];
+
+        scale -= 0.25;
+        noClicks++;
+
+        if (scale <= 0) {
+            noBtn.style.display = "none";
+        } else {
+            noBtn.style.transform = `scale(${scale})`;
+        }
+
+        if (noClicks >= messages.length) {
+            noClicks = messages.length - 1;
+        }
+    });
+
+    yesBtn.addEventListener("click", () => {
+        text.textContent = "YAY!! 💖 I knew it!";
+        gif.style.backgroundImage = 'url("images/yes.gif")';
+
+        noBtn.style.display = "none";
+        yesBtn.style.display = "none";
+
+        detailsBtn.style.display = "inline-block";
+    });
+
+    detailsBtn.addEventListener("click", () => {
+        detailsBox.style.display = "block";
+        detailsBtn.style.display = "none";
+        text.textContent = "💌Our Valentine's Day💌";
+        gif.style.backgroundImage = 'url("/images/happy.gif")';
+
+        gif.style.opacity = "0.4";
+    });
+</script>
+
+
+</body>
+</html>

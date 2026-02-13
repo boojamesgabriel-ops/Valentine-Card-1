@@ -6,7 +6,7 @@ body {
 
 #firstPage {
     height: 110vh;
-    background-image: url("../images/pOne.gif");
+    background-image: url("images/pOne.gif");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@ body {
 }
 
 #button {
-    background-image: url("../images/buttonV5.png");
+    background-image: url("images/buttonV5.png");
     background-color: lightcoral;
     background-size: 305px;
     background-position: center;
@@ -134,7 +134,7 @@ body {
     position: fixed;
     inset: 0;
     background-color: #850c0c;
-    background-image: url("../images/envelope.jpg");
+    background-image: url("images/envelope.jpg");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
